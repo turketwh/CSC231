@@ -17,7 +17,7 @@ public class Main {
       phoneNumbers[6] = "336-758-44271";
       phoneNumbers[7] = "336-758_4427";
 
-      String regularExpression = ";
+      String regularExpression = "";
 
       Pattern p = Pattern.compile(regularExpression);
 
