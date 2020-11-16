@@ -34,7 +34,7 @@
 ; sorted order, such as '(1 3 6 7 10)
 (define (functionC item theList)
   (cond
-    [(empty? theList) (const item '())]
+    [(empty? theList) (cons item '())]
     [else
      (cond
        [(< item (first theList)) (cons item theList)]
