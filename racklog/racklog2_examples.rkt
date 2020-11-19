@@ -53,22 +53,3 @@
 
 (%which (x) (%append '(1 2) '(3 4) x)) ; should evaluate to x is '(1 2 3 4)
 ; appears slightly differently via Racket application of . operation, as '(x 1 2 3 4)
-
-(define %appendedLength
-  (%rel (L1 L2 N Z)
-       [(L1 L2 Z)
-        (%append L1 L2 N)
-        (%listLength N Z)]
-       ))
-
-(%which (z) (%appendedLength '(1 2) '(5 8) z)) ; should evaluate to z is 4
-
-(define %notInSet
-  (%rel (E S)
-        [(E S)
-         (%not (%memberOfSet E S))]))
-
-(%which () (%notInSet 1 '())) ; should evaluate to '(), meaning true
-(%which () (%notInSet 1 '(2 3))) ; should evaluate to '(), meaning true
-(%which () (%notInSet 1 '(2 1 3))) ; should evaluate to #f, meaning false
-
