@@ -70,16 +70,16 @@
         ))
 
 (define %func
-  (%rel (X K Z A B C D E)
+  (%rel (X K Z A B C D E F)
         [(X K Z)
          (%is A (* 2 K))
          (%power X A B)
          (%is C (* 2 B))
          (%power X K D)
          (%is E (* 2 D))
-         (%is Z (+ 2 (+ C E)))]
-        ))
-         
+         (%is F (+ C E))
+         (%is Z (+ 2 F))]))
+
 
 (define %aicHelper
   (%rel (E F R Z T)
