@@ -20,16 +20,6 @@
 (check-expect (max2 3 5) 5); should return 5
 (check-expect (max2 7 7) 7); should return 7
 
-(define (max2cond a b)
-  (cond
-    [(> a b) a]
-    [else b]))
-
-(check-expect (max2cond 4 3) 4); should return 4
-(check-expect (max2cond 3 5) 5); should return 5
-(check-expect (max2cond 7 7) 7); should return 7
-
-
 ; UNCOMMENT next lines to test -- fourthPower --
 ;(check-expect (fourthPower 1) 1); should return 1
 ;(check-expect (fourthPower 2) 16); should return 16
