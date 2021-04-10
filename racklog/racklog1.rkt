@@ -21,6 +21,12 @@
         [('moon 'earth)]
         [('phobos 'mars)]
         [('deimos 'mars)]))
+        
+; space predicate
+(define %spacePredicate 
+   (%rel (p) 
+   [(p) 
+    (%orbits p 'sun)]))
 
 ; family parent relation
 (define %parent
@@ -39,10 +45,31 @@
         [('Laura 'Miles)]
         ))
 
-        
-; college location relation
-(define %location
+; family mystery relationship
+(define %mysteryRelationship 
+    (%rel (x y z) 
+     [(x y) 
+      (%parent z x) 
+      (%parent z y) 
+      (%/= x y)]))
+
+; a student relation defining facts about students
+(define %student
   (%rel ()
-        [('wakeforest 36.133892 -80.278030)]
-        [('duke 36.001427 -78.938232)]
-        [('uncch 35.898800 -79.041267)]))
+        [(123 35 2.75)]
+        [(345 62 2.48)]
+        [(456 90 3.62)]
+        [(789 70 1.53)]))
+
+; a (partially complete) satisfactoryProgress predicate
+(define %satisfactoryProgress
+  (%rel (id hours gpa)
+        [(id)
+         (%student id hours gpa)
+         (%>= hours 90)
+         (%>= gpa 1.90)]
+        [(id)
+         (%student id hours gpa)
+         (%< hours 90)
+         (%>= hours 60)
+         (%>= gpa 1.80)]))
